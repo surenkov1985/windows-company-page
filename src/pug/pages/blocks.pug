@@ -1,0 +1,28 @@
+
+block variables
+
+doctype html
+html(lang='en')
+	head
+		meta(charset='utf-8')
+		meta(name="viewport", content="width=device-width, user-scalable=yes, initial-scale=1.0")
+		link(rel="stylesheet", href="./style.css")
+	body
+		.wrapper
+			include ../includes/header
+			block stickMenu
+			block falseStickMenu
+			include ../includes/burger-menu
+			main.content
+				block contentTitle
+				div.content-grid-container
+					include ../includes/navbar
+					div.content-container
+						section.constructor
+							block constructorContainer
+						section.performance
+							block performanceContent
+						section.reviews
+							block reviewContainer
+
+		block script

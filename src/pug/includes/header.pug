@@ -1,0 +1,18 @@
+header.head
+	#container
+		.header-content
+			.header-logo
+				a(href="")
+					img(src="./images/logo.png" alt="")
+			.header-calc
+				.calc-link
+					a(href="") Рассчитать стоимость
+			.header-data
+				.header-data-mode с 9 до 21 без выходных
+				.header-data-call
+					a(href="tel:+79000000000") +7 495 534-65-33
+		nav.header-menu
+			ul.header-menu-list
+				for num in headerItem
+					li(class= num.class).header-menu-item
+						a(href= num.link)= num.name

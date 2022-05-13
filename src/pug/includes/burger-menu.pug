@@ -1,0 +1,16 @@
+#nav-bg.nav-bg
+	#bg.bg
+	.burger-nav
+		.burger-logo
+			a(href="")
+				img(src="./images/logo.png" alt="")
+		.nav-list
+			ul
+				for i in headerItem
+					li(class= i.class).burger-menu-item
+						a(href=i.link)= i.name
+		.burger-data
+			.burger-data-mode с 9 до 21 без выходных
+			.burger-data-call
+				a(href="tel:+79000000000") +7 495 534-65-33
+		div#closed-menu.closed-menu &#x2716

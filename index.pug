@@ -1,0 +1,93 @@
+extends src/pug/pages/blocks
+
+block variables
+	- var headerItem = [{link: "#", name: "О компании"}, {link: "#", name: "Цены"}, {link: "#", name: "Услуги и продукты", class: "active"}, {link: "#", name: "Акции"}, {link: "#", name: "Контакты"}];
+	- var navbarItems = [{link: "#", name: "Edinburgh by REHAU"}, {link: "#", name:"Estet by REHAU"}, {link: "#", name: "REHAU DELIGHT-Design"}, {link: "#", name: "REHAU BRILLANT-Design"}, {link: "#", name: "REHAU Geneo"}, {link: "#", name: "Цветные окна", class: "active"}, {link: "#", name:"Стеклопакеты"}, {link: "#", name: "Остекление балконов и лоджий"}, {link: "#", name: "Отделка и утепление балконов"}, {link: "#", name: "Балконные блоки"}];
+	- var constructItems  = ["Точная визуализация натурального дерева.", "Яркие нестандартные цвета в тон или в дополнение интерьера.", "Разные фактуры для Ваших пластиковых окон."];
+	- var colorsNumb = [{numb: "1", name: "color-blue.png", checked: true, value: "./images/renau-window-blue.png"}, {numb: "2", name: "color-brown.png", value: "./images/renau-window-brown.png"}, {numb: "3", name: "color-cherry.png", value: "./images/renau-window-cherry.png"}, {numb: "4", name: "color-green.png", value: "./images/renau-window-green.png"}, {numb: "5", name: "color-indigo.png", value: "./images/renau-window-indigo.png"}, {numb: "6", name: "color-orange.png", value: "./images/renau-window-orange.png"}, {numb: "7", name: "color-purple.png", value: "./images/renau-window-purple.png"}, {numb: "8", name: "color-turquoise.png", value: "./images/renau-window-turquoise.png"}, {numb: "9", name: "color-violet.png", value: "./images/renau-window-violet.png"}, {numb: "10", name: "color-white.png", value: "./images/renau-window-white.png"}, {numb: "11", name: "color-yellow.png", value: "./images/renau-window-yellow.png"}];
+	- var perfItems = [{image: "./svg/laminate.svg", text: "Чтобы придать внешнему виду окна оригинальную выразительность, специалисты применяют ламинацию – приём, при помощи которого можно декорировать своё жилье с учетом самых современных веяний дизайнерского искусства."}, {image: "./svg/wood.svg", text: "При помощи ламинации оконного профиля можно, например, со всей точностью воспроизвести оттенки и структуру древесины: при этом обеспечивается полная визуализация натурального дерева, точно имитирующая расположение волокон. Помимо имитации деревянных поверхностей, применяют пленку самых разных цветов и фактур."}];
+	- var contentTitle = "Цветные пластиковые окна";
+	- var titleDesc = "Ламинируем профиль ПВХ для предания окнам цвета и фактуры дерева";
+	- var navTitle = "Рекомендуем также";
+
+block stickMenu
+	#sticky-static.sticky-calc
+		.burger-menu
+			#static-burger.burger-button &#x2630;
+		.calc-link
+			a(href="") Рассчитать стоимость
+
+block falseStickMenu
+	#fixed.sticky-calc
+		.burger-menu
+			#fixed-burger.burger-button &#x2630;
+		.calc-link
+			a(href="") Рассчитать стоимость
+
+block contentTitle
+	div.content-title
+		h1.title= contentTitle
+		p.description= titleDesc
+
+block constructorContainer
+	h2.constructor-title Создайте выразительный интерьер с цветными окнами REHAU
+		div.description-container
+			div.window-img
+				div.img
+				p Ирландский дуб
+			ul.constructor-description-list
+				for con in constructItems
+					li.construct-item= con
+			div.check-color
+				div.color-choice
+					.color-title
+						h3 Подберите цвет для своих окон:
+					.color-choice-list
+						for obj in colorsNumb
+							label
+								input(name="color" type="radio" checked=obj.checked value=obj.value)
+								img(class=obj.numb, src="images/" + obj.name).no-check
+								div.check
+					div.choice-description
+						p Больше 50 вариантов  цветов и фактур спрашивайте у наших замерщиков
+				div.choice-btn
+					button.btn Рассчитать со скидкой 70%
+					a(href="#").btn-subtext или отправить заявку и получить консультацию
+
+block performanceContent
+	div.performance-container
+		div.performance-title
+			h3 Зачем использовать ламинацию
+		div.performance-icon
+			for key in perfItems
+				div(style="background-image: url(" + key.image + ")").icon
+				div.performance-paragraph= key.text
+	div.process-description
+		div.process-title
+			h3 Как окна становятся цветными?
+		div.description
+			div.description-paragraph
+				div.p-numb 1
+				div.process Собственно, процесс ламинации профиля ПВХ состоит в процедуре нанесения на его поверхность декоративных высокопрочных плёнок с применением специального клея и ламинирующих установок.
+			div.description-paragraph
+				div.p-numb 2
+				div.process Плёнку прочно соединяют с профилем. При этом внешней стороне пленки свойственна высокая стойкость к повреждениям. В частности, цветное пластиковое окно, прошедшее процесс ламинации, стойко переносит температурные колебания в диапазоне от -80°С до +130°С, оно исключительно стойко к солнечному излучению.
+			div.description-paragraph
+				div.p-numb 3
+				div.process Пластиковые окна, прошедшие процесс ламинации профилей, имеют срок службы гораздо больший, чем не ламинированные окна. В сравнении с окнами из массива дерева, они значительно дешевле.
+
+block reviewContainer
+	div.reviews-title
+		div.title
+			h2 Отзывы о цветных пластиковых окнах
+		div.review-link
+			a(href="#") посмотреть еще отзывы
+	div.review-container
+		include src/pug/includes/review-card
+		include src/pug/includes/review-card
+		div.review-btn
+			button.new-review оставить отзыв
+
+block script
+	script(src="join.js")
+

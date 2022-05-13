@@ -1,0 +1,7 @@
+navbar
+	div.content-nav
+		strong.nav-title= navTitle
+		ul.navbar-list
+			for nav in navbarItems
+				li(class= nav.class).navbar-item
+					a(href=nav.link)= nav.name
